@@ -111,14 +111,11 @@ export default {
   methods: {
     async add_job() {
       await axios
-        .post(
-          '/add',
-          (data = {
-            cluster: this.form.cluster,
-            user: this.form.user,
-            path: this.form.path,
-          })
-        )
+        .post('/add', {
+          cluster: this.form.cluster,
+          user: this.form.user,
+          path: this.form.path,
+        })
         .then((res) => {
           this.get_data();
         })
