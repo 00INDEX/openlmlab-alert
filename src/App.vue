@@ -77,20 +77,29 @@
       </el-table-column>
       <el-table-column label="操作" width="180">
         <template v-slot:default="scope">
-          <el-button @click="pause_monitor(scope.$index)" v-if="!scope.paused"
-            >暂停监控</el-button
-          >
-          <el-button @click="resume_monitor(scope.$index)" v-if="scope.paused"
-            >继续监控</el-button
-          >
-          <el-button type="danger" @click="remove_job(scope.$index)"
-            >删除</el-button
-          >
+          <div class="button-container">
+            <el-button @click="pause_monitor(scope.$index)" v-if="!scope.paused"
+              >暂停监控</el-button
+            >
+            <el-button @click="resume_monitor(scope.$index)" v-if="scope.paused"
+              >继续监控</el-button
+            >
+            <el-button type="danger" @click="remove_job(scope.$index)"
+              >删除</el-button
+            >
+          </div>
         </template>
       </el-table-column>
     </el-table>
   </div>
 </template>
+
+<style>
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+</style>
 
 <script>
 import axios from 'axios';
@@ -116,6 +125,7 @@ export default {
           cluster: this.form.cluster,
           user: this.form.user,
           path: this.form.path,
+          webhook: this.form.webhook,
         })
         .then((res) => {
           this.get_data();
