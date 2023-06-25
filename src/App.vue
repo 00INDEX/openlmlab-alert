@@ -161,16 +161,13 @@ export default {
           return 'el-icon-question-filled';
       }
     },
-    async reomve_job(index) {
+    async remove_job(index) {
       await axios
-        .post(
-          '/api/remove',
-          (data = {
-            cluster: this.tableData[index].cluster,
-            user: this.tableData[index].user,
-            path: this.tableData[index].path,
-          })
-        )
+        .post('/api/remove', {
+          cluster: this.tableData[index].cluster,
+          user: this.tableData[index].user,
+          path: this.tableData[index].path,
+        })
         .then((res) => {
           if (res.data.code != 200) {
             ElNotification({
@@ -213,14 +210,11 @@ export default {
     },
     async pause_monitor(index) {
       await axios
-        .post(
-          '/api/pause',
-          (data = {
-            cluster: this.tableData[index].cluster,
-            user: this.tableData[index].user,
-            path: this.tableData[index].path,
-          })
-        )
+        .post('/api/pause', {
+          cluster: this.tableData[index].cluster,
+          user: this.tableData[index].user,
+          path: this.tableData[index].path,
+        })
         .then((res) => {
           if (res.data.code != 200) {
             ElNotification({
@@ -241,14 +235,11 @@ export default {
     },
     async resume_monitor(index) {
       await axios
-        .post(
-          '/api/resume',
-          (data = {
-            cluster: this.tableData[index].cluster,
-            user: this.tableData[index].user,
-            path: this.tableData[index].path,
-          })
-        )
+        .post('/api/resume', {
+          cluster: this.tableData[index].cluster,
+          user: this.tableData[index].user,
+          path: this.tableData[index].path,
+        })
         .then((res) => {
           if (res.data.code != 200) {
             ElNotification({
