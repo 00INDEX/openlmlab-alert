@@ -111,7 +111,7 @@ export default {
   methods: {
     async add_job() {
       await axios
-        .post('/add', {
+        .post('/api/add', {
           cluster: this.form.cluster,
           user: this.form.user,
           path: this.form.path,
@@ -142,7 +142,7 @@ export default {
     async reomve_job(index) {
       await axios
         .post(
-          '/remove',
+          '/api/remove',
           (data = {
             cluster: this.tableData[index].cluster,
             user: this.tableData[index].user,
