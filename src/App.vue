@@ -134,6 +134,7 @@ export default {
   },
   methods: {
     async add_job() {
+      console.log('add_job');
       await axios
         .post('/api/add', {
           cluster: this.form.cluster,
@@ -141,9 +142,7 @@ export default {
           path: this.form.path,
           webhook: this.form.webhook,
         })
-        .then((res) => {
-          this.get_data();
-        })
+        .then((res) => {})
         .catch((e) => {
           ElNotification({
             title: 'Error',
