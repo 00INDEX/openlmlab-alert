@@ -38,8 +38,8 @@
                 scope.row.status === 0
                   ? 'green'
                   : scope.row.status === 1
-                  ? 'yellow'
-                  : 'red',
+                  ? '#fa8c35'
+                  : '#f00056',
             }"
             :name="statusIcon(scope.row.status)"
           ></el-icon>
@@ -53,8 +53,8 @@
                 scope.row.log_file_status === 0
                   ? 'green'
                   : scope.row.log_file_status === 1
-                  ? 'yellow'
-                  : 'red',
+                  ? '#fa8c35'
+                  : '#f00056',
             }"
             >{{ scope.row.log_file_msg }}</span
           >
@@ -68,8 +68,8 @@
                 scope.row.tensorboard_status === 0
                   ? 'green'
                   : scope.row.tensorboard_status === 1
-                  ? 'yellow'
-                  : 'red',
+                  ? '#fa8c35'
+                  : '#f00056',
             }"
             >{{ scope.row.tensorboard_msg }}</span
           >
@@ -97,7 +97,7 @@
 <style>
 .button-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
