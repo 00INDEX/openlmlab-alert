@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <el-form ref="form" :model="form" inline>
       <el-form-item label="集群">
         <el-select v-model="form.cluster" placeholder="请选择">
@@ -32,17 +32,15 @@
       <el-table-column prop="path" label="路径"> </el-table-column>
       <el-table-column label="状态">
         <template v-slot:default="scope">
-          <el-icon
-            :style="{
-              color:
-                scope.row.status === 0
-                  ? 'green'
-                  : scope.row.status === 1
-                  ? '#fa8c35'
-                  : '#f00056',
-            }"
-            :name="statusIcon(scope.row.status)"
-          ></el-icon>
+          <el-icon style="color: green" v-if="scope.row.status === 0"
+            ><CircleCheckFilled
+          /></el-icon>
+          <el-icon style="color: #fa8c35" v-if="scope.row.status === 0"
+            ><InfoFilled
+          /></el-icon>
+          <el-icon style="color: #f00056" v-if="scope.row.status === 0"
+            ><WarnTriangleFilled
+          /></el-icon>
         </template>
       </el-table-column>
       <el-table-column label="log_file信息">
@@ -100,6 +98,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+.main {
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 </style>
 
