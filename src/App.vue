@@ -32,13 +32,19 @@
       <el-table-column prop="path" label="路径"> </el-table-column>
       <el-table-column label="状态">
         <template v-slot:default="scope">
-          <el-icon style="color: green" v-if="scope.row.status === 0"
+          <el-icon style="color: green" :size="40" v-if="scope.row.status === 0"
             ><CircleCheckFilled
           /></el-icon>
-          <el-icon style="color: #fa8c35" v-if="scope.row.status === 0"
+          <el-icon
+            style="color: #fa8c35"
+            :size="40"
+            v-if="scope.row.status === 1"
             ><InfoFilled
           /></el-icon>
-          <el-icon style="color: #f00056" v-if="scope.row.status === 0"
+          <el-icon
+            style="color: #f00056"
+            :size="40"
+            v-if="scope.row.status === 2"
             ><WarnTriangleFilled
           /></el-icon>
         </template>
