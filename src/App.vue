@@ -97,6 +97,8 @@
 <style>
 .button-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 }
 </style>
@@ -161,6 +163,13 @@ export default {
           })
         )
         .then((res) => {
+          if (res.data.code != 200) {
+            ElNotification({
+              title: 'Error',
+              message: res.data.msg,
+              type: 'error',
+            });
+          }
           this.get_data();
         })
         .catch((e) => {
@@ -175,6 +184,13 @@ export default {
       await axios
         .get('/api/data')
         .then((res) => {
+          if (res.data.code != 200) {
+            ElNotification({
+              title: 'Error',
+              message: res.data.msg,
+              type: 'error',
+            });
+          }
           this.tableData.length = 0;
           Array.prototype.push.apply(this.tableData, res.data.data);
         })
@@ -197,6 +213,13 @@ export default {
           })
         )
         .then((res) => {
+          if (res.data.code != 200) {
+            ElNotification({
+              title: 'Error',
+              message: res.data.msg,
+              type: 'error',
+            });
+          }
           this.get_data();
         })
         .catch((e) => {
@@ -218,6 +241,13 @@ export default {
           })
         )
         .then((res) => {
+          if (res.data.code != 200) {
+            ElNotification({
+              title: 'Error',
+              message: res.data.msg,
+              type: 'error',
+            });
+          }
           this.get_data();
         })
         .catch((e) => {
