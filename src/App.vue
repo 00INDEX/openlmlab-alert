@@ -79,6 +79,8 @@
           >
         </template>
       </el-table-column>
+      <el-table-column prop="next_run_time" label="下次访问时间">
+      </el-table-column>
       <el-table-column label="操作" width="180">
         <template v-slot:default="scope">
           <div class="button-container">
@@ -118,7 +120,7 @@ import { ElNotification } from 'element-plus';
 export default {
   data() {
     return {
-      clusters: ['S', 'P', '阿里云'],
+      clusters: ['S', 'P', 'Ali', ''],
       form: {
         cluster: '',
         user: '',
