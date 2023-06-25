@@ -84,12 +84,13 @@
       <el-table-column label="操作" width="180">
         <template v-slot:default="scope">
           <div class="button-container">
-            <el-button @click="pause_monitor(scope.$index)" v-if="!scope.paused"
-              >暂停监控</el-button
-            >
-            <el-button @click="resume_monitor(scope.$index)" v-if="scope.paused"
+            <el-button type="success" @click="resume_monitor(scope.$index)"
               >继续监控</el-button
             >
+            <el-button type="warning" @click="pause_monitor(scope.$index)"
+              >暂停监控</el-button
+            >
+
             <el-button type="danger" @click="remove_job(scope.$index)"
               >删除</el-button
             >
