@@ -262,6 +262,7 @@ export default {
     },
   },
   mounted: function () {
+    this.get_data();
     this.interval = setInterval(this.get_data, 10000);
   },
 };
