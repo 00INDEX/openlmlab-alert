@@ -79,7 +79,7 @@
           >
         </template>
       </el-table-column>
-      <el-table-column prop="next_run_time" label="下次访问时间">
+      <el-table-column prop="next_run_time" label="距离下次查询">
       </el-table-column>
       <el-table-column label="操作" width="180">
         <template v-slot:default="scope">
