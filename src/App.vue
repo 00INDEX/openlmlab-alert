@@ -45,31 +45,35 @@
           ></el-icon>
         </template>
       </el-table-column>
-      <el-table-column
-        :style="{
-          color:
-            scope.row.log_file_status === 0
-              ? 'green'
-              : scope.row.log_file_status === 1
-              ? 'yellow'
-              : 'red',
-        }"
-        prop="log_file_msg"
-        label="log_file信息"
-      >
+      <el-table-column label="log_file信息">
+        <template v-slot:default="scope">
+          <span
+            :style="{
+              color:
+                scope.row.log_file_status === 0
+                  ? 'green'
+                  : scope.row.log_file_status === 1
+                  ? 'yellow'
+                  : 'red',
+            }"
+            >{{ scope.row.log_file_msg }}</span
+          >
+        </template>
       </el-table-column>
-      <el-table-column
-        :style="{
-          color:
-            scope.tensorboard_status === 0
-              ? 'green'
-              : scope.row.tensorboard_status === 1
-              ? 'yellow'
-              : 'red',
-        }"
-        prop="tensorboard_msg"
-        label="tensorboard信息"
-      >
+      <el-table-column label="tensorboard信息">
+        <template v-slot:default="scope">
+          <span
+            :style="{
+              color:
+                scope.row.tensorboard_status === 0
+                  ? 'green'
+                  : scope.row.tensorboard_status === 1
+                  ? 'yellow'
+                  : 'red',
+            }"
+            >{{ scope.row.tensorboard_msg }}</span
+          >
+        </template>
       </el-table-column>
       <el-table-column label="操作" width="180">
         <template v-slot:default="scope">
