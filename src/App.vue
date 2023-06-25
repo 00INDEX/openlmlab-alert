@@ -262,7 +262,7 @@ export default {
     },
   },
   mounted: function () {
-    this.interval = setInterval(this.get_data, 2000);
+    this.interval = setInterval(this.get_data, 10000);
   },
 };
 </script>
