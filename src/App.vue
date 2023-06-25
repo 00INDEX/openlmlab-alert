@@ -81,7 +81,7 @@
       </el-table-column>
       <el-table-column prop="next_run_time" label="距离下次查询">
       </el-table-column>
-      <el-table-column label="操作" width="180">
+      <el-table-column label="操作" width="300">
         <template v-slot:default="scope">
           <div class="button-container">
             <el-button type="success" @click="resume_monitor(scope.$index)"
