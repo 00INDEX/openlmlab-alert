@@ -106,6 +106,7 @@ export default {
         webhook: '',
       },
       tableData: [],
+      interval: null,
     };
   },
   methods: {
@@ -164,7 +165,7 @@ export default {
       await axios
         .get('/api/data')
         .then((res) => {
-          this.tableData.clear();
+          this.tableData.length = 0;
           Array.prototype.push.apply(this.tableData, res.data.data);
         })
         .catch((e) => {
@@ -218,6 +219,8 @@ export default {
         });
     },
   },
-  mounted: function () {},
+  mounted: function () {
+    this.interval = setInterval(this.get_data, 2000);
+  },
 };
 </script>
