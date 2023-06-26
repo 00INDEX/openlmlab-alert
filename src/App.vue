@@ -136,7 +136,7 @@ export default {
     async add_job() {
       console.log('add_job');
       await axios
-        .post('/api/add', {
+        .post('/monitor_system/alert/api/add', {
           cluster: this.form.cluster,
           user: this.form.user,
           path: this.form.path,
@@ -165,7 +165,7 @@ export default {
     },
     async remove_job(index) {
       await axios
-        .post('/api/remove', {
+        .post('/monitor_system/alert/api/remove', {
           cluster: this.tableData[index].cluster,
           user: this.tableData[index].user,
           path: this.tableData[index].path,
@@ -190,7 +190,7 @@ export default {
     },
     async get_data() {
       await axios
-        .get('/api/data')
+        .get('/monitor_system/alert/api/data')
         .then((res) => {
           if (res.data.code != 200) {
             ElNotification({
@@ -212,7 +212,7 @@ export default {
     },
     async pause_monitor(index) {
       await axios
-        .post('/api/pause', {
+        .post('/monitor_system/alert/api/pause', {
           cluster: this.tableData[index].cluster,
           user: this.tableData[index].user,
           path: this.tableData[index].path,
@@ -237,7 +237,7 @@ export default {
     },
     async resume_monitor(index) {
       await axios
-        .post('/api/resume', {
+        .post('/monitor_system/alert/api/resume', {
           cluster: this.tableData[index].cluster,
           user: this.tableData[index].user,
           path: this.tableData[index].path,
