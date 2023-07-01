@@ -21,6 +21,12 @@
       <el-form-item label="飞书webhook">
         <el-input v-model="form.webhook"></el-input>
       </el-form-item>
+      <el-form-item label="负责人">
+        <el-input
+          v-model="form.oncall"
+          placeholder="预警信息通知目标，留空默认使用用户名"
+        ></el-input>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="add_job">插入</el-button>
       </el-form-item>
@@ -29,6 +35,7 @@
     <el-table :data="tableData" style="width: 100%">
       <el-table-column prop="cluster" label="集群"> </el-table-column>
       <el-table-column prop="user" label="用户名"> </el-table-column>
+      <el-table-column prop="oncall" label="负责人"> </el-table-column>
       <el-table-column prop="path" label="路径"> </el-table-column>
       <el-table-column label="状态">
         <template v-slot:default="scope">
@@ -127,6 +134,7 @@ export default {
         user: '',
         path: '',
         webhook: '',
+        oncall: '',
       },
       tableData: [],
       interval: null,
@@ -141,6 +149,7 @@ export default {
           user: this.form.user,
           path: this.form.path,
           webhook: this.form.webhook,
+          oncall: this.form.oncall,
         })
         .then((res) => {})
         .catch((e) => {
