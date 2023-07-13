@@ -27,6 +27,15 @@
           placeholder="预警信息通知目标，留空默认使用用户名"
         ></el-input>
       </el-form-item>
+      <el-form-item label="勿扰时间">
+        <el-time-picker
+          v-model="form.no_disturbing_time"
+          is-range
+          range-separator="To"
+          start-placeholder="Start time"
+          end-placeholder="End time"
+        />
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="add_job">插入</el-button>
       </el-form-item>
@@ -37,6 +46,8 @@
       <el-table-column prop="user" label="用户名"> </el-table-column>
       <el-table-column prop="oncall" label="负责人"> </el-table-column>
       <el-table-column prop="path" label="路径"> </el-table-column>
+      <el-table-column prop="no_disturbing_time" label="勿扰时间">
+      </el-table-column>
       <el-table-column label="状态">
         <template v-slot:default="scope">
           <el-icon style="color: green" :size="40" v-if="scope.row.status === 0"
@@ -135,6 +146,10 @@ export default {
         path: '',
         webhook: '',
         oncall: '',
+        no_disturbing_time: [
+          new Date(2016, 9, 10, 1, 0),
+          new Date(2016, 9, 10, 8, 0),
+        ],
       },
       tableData: [],
       interval: null,
@@ -150,6 +165,12 @@ export default {
           path: this.form.path,
           webhook: this.form.webhook,
           oncall: this.form.oncall,
+          no_disturbing_from: Math.floor(
+            this.form.no_disturbing_time[0].getTime() / 1000
+          ),
+          no_disturbing_to: Math.floor(
+            this.form.no_disturbing_time[1].getTime() / 1000
+          ),
         })
         .then((res) => {})
         .catch((e) => {
