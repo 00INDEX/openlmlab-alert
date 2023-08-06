@@ -139,7 +139,7 @@ import { ElNotification } from 'element-plus';
 export default {
   data() {
     return {
-      clusters: ['S', 'P', 'Ali', ''],
+      clusters: ['S', 'P', 'Ali', 'A800'],
       form: {
         cluster: '',
         user: '',
